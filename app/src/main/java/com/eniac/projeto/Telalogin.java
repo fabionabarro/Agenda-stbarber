@@ -20,14 +20,14 @@ public class Telalogin extends AppCompatActivity {
 
         final EditText editEmail1, editSenha1;
         Button btnLogar, btnCadastro;
-       final String HOST = "http://192.168.1.36/login";
+        final String HOST = "http://192.168.1.36/login";
 
-        editEmail1 = (EditText )findViewById(R.id.EDlogin);
-        editSenha1 = (EditText )findViewById(R.id.EDsenha);
-        btnLogar = (Button)findViewById(R.id.btnLogar);
-        btnCadastro = (Button)findViewById(R.id.btnCadastro);
+        editEmail1 = findViewById(R.id.EDlogin);
+        editSenha1 = findViewById(R.id.EDsenha);
+        btnLogar = findViewById(R.id.btnLogar);
+        btnCadastro = findViewById(R.id.btnCadastro);
 
-
+//yooo
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
