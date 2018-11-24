@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Projeto</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtSenha">Senha</string>
+
+
+    <string name="txtBTentrar">Entrar</string>
+    <string name="txtBTcadastrar">Cadastrar</string>
+    <string name="txtBTesqueci">Esqueci a senha</string>
+
+    <string name="txtbemv">Bem vindo</string>
+    <string name="txtnome">Fulano </string>
+    <string name="txtOqued">O que deseja fazer hoje? </string>
+    <string name="txtBTagendar">Agendar um hórario</string>
+    <string name="txtBTcancelar">Cancelar um hórario</string>
+    <string name="txtBTvoltar">Voltar</string>
+
+    <string name="txtBTescolherDia">Agendar</string>
+
+    <string name="txtEditEmail">Email</string>
+    <string name="txtBTcancelar1">Cancelar</string>
+    <string name="txtbtnRegistar">Registrar</string>
+
+
+
+
+</resources>
