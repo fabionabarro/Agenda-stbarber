@@ -6,20 +6,54 @@
 
     <string name="txtBTentrar">Entrar</string>
     <string name="txtBTcadastrar">Cadastrar</string>
-    <string name="txtBTesqueci">Esqueci a senha</string>
+    <string name="txtBTSair">Fechar</string>
 
     <string name="txtbemv">Bem vindo</string>
     <string name="txtnome">Fulano </string>
     <string name="txtOqued">O que deseja fazer hoje? </string>
     <string name="txtBTagendar">Agendar um hórario</string>
     <string name="txtBTcancelar">Cancelar um hórario</string>
-    <string name="txtBTvoltar">Voltar</string>
+    <string name="txtBTvoltar">Sair</string>
 
-    <string name="txtBTescolherDia">Agendar</string>
+    <string name="txtEscolherDia">Escolha um dia</string>
 
     <string name="txtEditEmail">Email</string>
     <string name="txtBTcancelar1">Cancelar</string>
     <string name="txtbtnRegistar">Registrar</string>
+
+    <string name="txtEscolheuData">Você escolheu a data</string>
+    <string name="txtEscolhaServico">Escolha o hórario e serviço</string>
+
+    <string name="chbarba">Barba</string>
+    <string name="chcabelo">Cabelo</string>
+    <string name="chdois">Barba e Cabelo</string>
+    <string name="btnconcluir">Concluir</string>
+
+    <string name="auxdata">Data: </string>
+    <string name="auxhora">Hora:</string>
+    <string name="auxservico">Serviço:</string>
+
+    <string name="auxfinal">Agendado com Sucesso</string>
+    <string name="btfinalizar">Finalizar</string>
+    
+    <string-array name="opt">
+        <item>Barba</item>
+        <item>Cabelo</item>
+        <item>Barba e cabelo</item>
+
+
+    </string-array>
+    <string-array name="lista">
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+
+
+    </string-array>
 
 
 

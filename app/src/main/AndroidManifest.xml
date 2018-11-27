@@ -19,7 +19,25 @@
 
         </activity>
         <activity
+            android:name=".Telaresultado"
+            android:screenOrientation="portrait">
+
+
+        </activity>
+        <activity
+            android:name=".Telahorario"
+            android:screenOrientation="portrait">
+
+
+        </activity>
+        <activity
             android:name=".Telainicial"
+            android:screenOrientation="portrait">
+
+
+        </activity>
+        <activity
+            android:name=".Telaagenda"
             android:screenOrientation="portrait">
 
 

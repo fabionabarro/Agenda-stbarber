@@ -56,10 +56,11 @@
 
         />
     <Button
+        android:id="@+id/btnSair"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="@string/txtBTesqueci"
+        android:text="@string/txtBTSair"
         android:layout_marginTop="25dp"
 
         />

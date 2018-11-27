@@ -13,51 +13,42 @@
 
         <TextView
             android:layout_marginTop="15dp"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
             android:textSize="25dp"
             android:text="@string/txtbemv" />
 
-        <TextView
-            android:id="@+id/nome"
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textSize="25dp"
-            android:text="@string/txtnome" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible">
 
         <TextView
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textSize="25dp"
+            android:textColor="#000000"
             android:text="@string/txtOqued" />
 
         <Button
             android:id="@+id/agendar"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             android:textSize="20dp"
             android:text="@string/txtBTagendar" />
 
         <Button
-            android:id="@+id/cancelar"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:textSize="20dp"
-            android:text="@string/txtBTcancelar" />
-
-        <Button
-            android:id="@+id/voltar"
+            android:id="@+id/sair"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:textSize="20dp"

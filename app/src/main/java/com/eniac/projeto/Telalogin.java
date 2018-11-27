@@ -19,15 +19,17 @@ public class Telalogin extends AppCompatActivity {
         setContentView(R.layout.login);
 
         final EditText editEmail1, editSenha1;
-        Button btnLogar, btnCadastro;
-        final String HOST = "http://192.168.1.36/login";
+        final Button btnLogar, btnCadastro, btnSair;
+
+
 
         editEmail1 = findViewById(R.id.EDlogin);
         editSenha1 = findViewById(R.id.EDsenha);
         btnLogar = findViewById(R.id.btnLogar);
         btnCadastro = findViewById(R.id.btnCadastro);
+        btnSair = findViewById(R.id.btnSair);
 
-//yooo
+
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +38,7 @@ public class Telalogin extends AppCompatActivity {
                 String email = editEmail1.getText().toString();
                 String senha = editSenha1.getText().toString();
 
-                String URL = HOST + "/logar.php";
+
 
                 if (email.isEmpty() || senha.isEmpty()) {
 
@@ -44,37 +46,9 @@ public class Telalogin extends AppCompatActivity {
 
 
                 }else {
-
-
-                    Ion.with(Telalogin.this)
-                            .load(URL)
-
-                            .setBodyParameter("email_app",email)
-                            .setBodyParameter("senha_app",senha)
-                            .asJsonObject()
-                            .setCallback(new FutureCallback<JsonObject>() {
-                                @Override
-                                public void onCompleted(Exception e, JsonObject result) {
-                                    try {
-
-                                        String RETORNO = result.get("LOGIN").getAsString();
-
-                                        if (RETORNO.equals("ERRO")){
-                                            Toast.makeText(Telalogin.this, "Email ou senha incorretos" , Toast.LENGTH_LONG).show();
-
-                                        }else if(RETORNO.equals("SUCESSO")){
-                                            Intent abreTelaInicial = new Intent(Telalogin.this, Telainicial.class);
-                                            startActivity(abreTelaInicial);
-                                        }else{
-                                            Toast.makeText(Telalogin.this, "Ocorreu um erro!" , Toast.LENGTH_LONG).show();
-                                        }
-
-                                    } catch (Exception erro) {
-                                        Toast.makeText(Telalogin.this, "ops deu erro," + erro, Toast.LENGTH_LONG).show();
-                                    }
-
-                                }
-                            });
+                    Intent abretelainicial = new Intent(Telalogin.this, Telainicial.class);
+                    startActivity(abretelainicial);
+                    finish();
                 }
 
 
@@ -87,6 +61,15 @@ public class Telalogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent abreCadastro = new Intent(Telalogin.this, Telacadastro.class);
                 startActivity(abreCadastro);
+                finish();
+            }
+        });
+
+        btnSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
             }
         });
 
