@@ -21,6 +21,8 @@ public class Telalogin extends AppCompatActivity {
         final EditText editEmail1, editSenha1;
         final Button btnLogar, btnCadastro, btnSair;
 
+        final String HOST = "http://192.168.1.36/login"; //pasta local com doc de conexão .php
+
 
 
         editEmail1 = findViewById(R.id.EDlogin);
@@ -39,6 +41,7 @@ public class Telalogin extends AppCompatActivity {
                 String senha = editSenha1.getText().toString();
 
 
+                String URL = HOST + "/logar.php";
 
                 if (email.isEmpty() || senha.isEmpty()) {
 
@@ -46,9 +49,37 @@ public class Telalogin extends AppCompatActivity {
 
 
                 }else {
-                    Intent abretelainicial = new Intent(Telalogin.this, Telainicial.class);
-                    startActivity(abretelainicial);
-                    finish();
+
+
+                    Ion.with(Telalogin.this)
+                            .load(URL)
+
+                            .setBodyParameter("email_app",email)
+                            .setBodyParameter("senha_app",senha)
+                            .asJsonObject()
+                            .setCallback(new FutureCallback<JsonObject>() {
+                                @Override
+                                public void onCompleted(Exception e, JsonObject result) {
+                                    try {
+
+                                        String RETORNO = result.get("LOGIN").getAsString();
+
+                                        if (RETORNO.equals("ERRO")){
+                                            Toast.makeText(Telalogin.this, "Email ou senha incorretos" , Toast.LENGTH_LONG).show();
+
+                                        }else if(RETORNO.equals("SUCESSO")){
+                                            Intent abreTelaInicial = new Intent(Telalogin.this, Telainicial.class);
+                                            startActivity(abreTelaInicial);
+                                        }else{
+                                            Toast.makeText(Telalogin.this, "Ocorreu um erro!" , Toast.LENGTH_LONG).show();
+                                        }
+
+                                    } catch (Exception erro) {
+                                        Toast.makeText(Telalogin.this, "ops deu erro," + erro, Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            });
                 }
 
 

@@ -28,6 +28,7 @@
     <string name="chcabelo">Cabelo</string>
     <string name="chdois">Barba e Cabelo</string>
     <string name="btnconcluir">Concluir</string>
+    <string name="txtBTnvoltar">Voltar</string>
 
     <string name="auxdata">Data: </string>
     <string name="auxhora">Hora:</string>

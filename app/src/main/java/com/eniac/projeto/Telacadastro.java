@@ -23,6 +23,9 @@ import android.widget.EditText;
 
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 
 public class Telacadastro extends AppCompatActivity{
@@ -36,6 +39,8 @@ public class Telacadastro extends AppCompatActivity{
         final EditText editNome, editEmail2, editSenha2;
         Button btnCancelar, btnRegistrar;
         int codigo;
+
+        final String HOST = "http://192.168.1.36/login";//pasta local com doc de conexao.php criado no xampp diretorio C:\xampp\htdocs\login
 
 
         editNome = (EditText) findViewById(R.id.editNome);
@@ -52,27 +57,56 @@ public class Telacadastro extends AppCompatActivity{
                 String senha = editSenha2.getText().toString();
                 String nome = editNome.getText().toString();
 
-                if (email.isEmpty() || senha.isEmpty() || nome.isEmpty()) {
+
+                String URL = HOST + "/cadastrar.php";//pasta local com doc de cadastrar.php criado no xampp diretorio C:\xampp\htdocs\login
+
+                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
 
                     Toast.makeText(Telacadastro.this, "Todos os campos são obrigatórios!" , Toast.LENGTH_LONG).show();
 
 
                 }else {
-                    Toast.makeText(Telacadastro.this, "Registrado com sucesso!" , Toast.LENGTH_LONG).show();
 
-                    Intent abretelainicial = new Intent(Telacadastro.this, Telalogin.class);
-                    startActivity(abretelainicial);
-                    finish();
+
+                    Ion.with(Telacadastro.this)
+                            .load(URL)
+                            .setBodyParameter("nome_app",nome)
+                            .setBodyParameter("email_app",email)
+                            .setBodyParameter("senha_app",senha)
+                            .asJsonObject()
+                            .setCallback(new FutureCallback<JsonObject>() {
+                                @Override
+                                public void onCompleted(Exception e, JsonObject result) {
+                                    try {
+
+                                        String RETORNO = result.get("CADASTRO").getAsString();
+
+                                        if (RETORNO.equals("EMAIL_ERRO")){
+                                            Toast.makeText(Telacadastro.this, "Este email ja esta cadastrado!" , Toast.LENGTH_LONG).show();
+
+                                        }else if(RETORNO.equals("SUCESSO")){
+                                            Toast.makeText(Telacadastro.this, "Cadastrado com sucesso!" , Toast.LENGTH_LONG).show();
+                                            Intent abrelogin = new Intent(Telacadastro.this, Telalogin.class);
+                                            startActivity(abrelogin);
+                                        }else{
+                                            Toast.makeText(Telacadastro.this, "Ocorreu um erro!" , Toast.LENGTH_LONG).show();
+                                        }
+
+                                    } catch (Exception erro) {
+                                        Toast.makeText(Telacadastro.this, "ops deu erro," + erro, Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            });
                 }
-
-
-
             }
         });
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent abrelogin = new Intent(Telacadastro.this, Telalogin.class);
+                startActivity(abrelogin);
                 finish();
             }
         });
